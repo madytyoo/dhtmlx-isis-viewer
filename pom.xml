@@ -16,6 +16,8 @@
         <appengine.target.version>1.7.7</appengine.target.version>
         
         
+        <antlr.version>4.0</antlr.version>
+
         <isis.version>1.1.0</isis.version>
         <isis-objectstore-jdo.version>1.0.0</isis-objectstore-jdo.version>
         
@@ -82,9 +84,9 @@
         </dependency>
         <!-- ANTLR4 -->
         <dependency>
-            <groupId>com.tunnelvisionlabs</groupId>
-            <artifactId>antlr4-runtime</artifactId>
-            <version>4.0</version>
+            <groupId>org.antlr</groupId>
+            <artifactId>antlr4</artifactId>
+            <version>${antlr.version}</version>
         </dependency>
         <!-- Resteasy -->
         <dependency>
@@ -97,6 +99,13 @@
             <artifactId>commons-fileupload</artifactId>
             <version>1.2.2</version>
         </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>1.4</version>
+        </dependency>
+
 
         <!-- other isis components -->
         <dependency>
@@ -123,11 +132,6 @@
         </dependency>
 
 
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>1.4</version>
-        </dependency>
 
     </dependencies>
 
