@@ -14,10 +14,53 @@
     <properties>
         <appengine.app.version>1</appengine.app.version>
         <appengine.target.version>1.7.7</appengine.target.version>
+        
+        
         <isis.version>1.1.0</isis.version>
         <isis-objectstore-jdo.version>1.0.0</isis-objectstore-jdo.version>
+        
+        <isis-security-file.version>1.0.0</isis-security-file.version>
+        <isis-security-shiro.version>1.1.0</isis-security-shiro.version>
+        
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    
+    <dependencyManagement>
+        <dependencies>
+            <!-- Apache Isis -->
+            <dependency>
+                <groupId>org.apache.isis.core</groupId>
+                <artifactId>isis</artifactId>
+                <version>${isis.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.isis.objectstore</groupId>
+                <artifactId>isis-objectstore-jdo</artifactId>
+                <version>${isis-objectstore-jdo.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.isis.security</groupId>
+                <artifactId>isis-security-shiro</artifactId>
+                <version>${isis-security-shiro.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.isis.security</groupId>
+                <artifactId>isis-security-file</artifactId>
+                <version>${isis-security-file.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <!-- AppEngine -->
@@ -43,24 +86,10 @@
             <artifactId>antlr4-runtime</artifactId>
             <version>4.0</version>
         </dependency>
-        <!-- Apache Isis -->
-        <dependency>
-            <groupId>org.apache.isis.core</groupId>
-            <artifactId>isis</artifactId>
-            <version>${isis.version}</version>
-            <type>pom</type>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.isis.objectstore</groupId>
-            <artifactId>isis-objectstore-jdo</artifactId>
-            <version>${isis-objectstore-jdo.version}</version>
-            <type>pom</type>
-        </dependency>
         <!-- Resteasy -->
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-jaxrs</artifactId>
-            <version>2.3.5.Final</version>
         </dependency>
         <!-- Apache Common -->
         <dependency>
@@ -68,6 +97,31 @@
             <artifactId>commons-fileupload</artifactId>
             <version>1.2.2</version>
         </dependency>
+
+        <!-- other isis components -->
+        <dependency>
+            <groupId>org.apache.isis.security</groupId>
+            <artifactId>isis-security-shiro</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.isis.security</groupId>
+            <artifactId>isis-security-file</artifactId>
+        </dependency>
+
+        <!-- isis core -->
+        <dependency>
+            <groupId>org.apache.isis.core</groupId>
+            <artifactId>isis-core-runtime</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.isis.core</groupId>
+            <artifactId>isis-core-profilestore</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.isis.core</groupId>
+            <artifactId>isis-core-security</artifactId>
+        </dependency>
+
 
         <dependency>
             <groupId>commons-io</groupId>
@@ -113,5 +167,25 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <!-- 
+            if using M2E and Eclipse...
+            -->
+            <id>m2e</id>
+            <activation>
+                <property>
+                    <name>m2e.version</name>
+                </property>
+            </activation>
+            <!-- 
+            ... make sure builds to a different directory than command-line Maven 
+            -->
+            <build>
+                <directory>target-ide</directory>
+            </build>
+        </profile>
+    </profiles>
 
 </project>
