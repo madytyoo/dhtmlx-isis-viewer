@@ -1,0 +1,19 @@
+# is for what?  I suspect this is an error --DanH
+/target
+
+
+# Maven command line
+target/
+
+# IntelliJ
+.iml
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# Eclipse/M2E (see pom.xml for config)
+target-ide/
+
+
