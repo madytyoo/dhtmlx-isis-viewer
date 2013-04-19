@@ -1,7 +1,6 @@
 package com.mylaensys.isis.viewer.dhtmlx.desktop;
 
 import com.mylaensys.isis.viewer.dhtmlx.ComponentFactory;
-import com.mylaensys.isis.viewer.dhtmlx.desktop.ComponentFactoryDesktop;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -56,7 +55,7 @@ public class AbstractService {
         String name = object == null ? "" : action == null ?  "" : object + "." + action;
 
         HttpSession session = request.getSession();
-        String filename = "WEB-INF/" + name + ".dsl";
+        String filename = "src/main/webapp/WEB-INF/" + name + ".dsl";
         session.setAttribute(filename, code );
 
     }

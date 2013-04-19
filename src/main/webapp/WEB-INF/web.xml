@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
+
+    <context-param>
+        <param-name>deploymentType</param-name>
+        <param-value>SERVER_EXPLORATION</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>org.apache.isis.core.webapp.IsisWebAppBootstrapper</listener-class>
+    </listener>
+
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <listener>
+            <listener-class>org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap</listener-class>
+        </listener>
+
+        <!-- used by RestEasy to determine the JAX-RS resources and other related configuration -->
+        <context-param>
+            <param-name>javax.ws.rs.Application</param-name>
+            <param-value>com.mylaensys.isis.viewer.ViewerDHTMLX</param-value>
+        </context-param>
+
+        <context-param>
+            <param-name>resteasy.servlet.mapping.prefix</param-name>
+            <param-value>/dhx</param-value>
+        </context-param>
+
+
+        <servlet>
+            <servlet-name>RestfulObjectsRestEasyDispatcher</servlet-name>
+            <servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
+        </servlet>
+        <servlet-mapping>
+            <servlet-name>RestfulObjectsRestEasyDispatcher</servlet-name>
+            <url-pattern>/dhx/*</url-pattern>
+        </servlet-mapping>
+
+
+
+</web-app>
