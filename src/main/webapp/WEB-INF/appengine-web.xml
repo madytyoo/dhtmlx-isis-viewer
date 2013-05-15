@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
+    <application>isis-viewer-dhtmlx</application>
+    <version>2</version>
+
+    <threadsafe>true</threadsafe>
+    <sessions-enabled>true</sessions-enabled>
+
+    <static-files>
+        <include path="uploader.swf"/>
+        <include path="*.html"/>
+        <include path="*.xml"/>
+        <include path="*.js"/>
+        <include path="*.json"/>
+        <include path="*.css"/>
+        <include path="/skin/**.*"/>
+
+        <include path="imgs/**.*"/>
+        <include path="images/**.*"/>
+        <include path="types/**.*"/>
+        <include path="ace/**.*"/>
+    </static-files>
+</appengine-web-app>
