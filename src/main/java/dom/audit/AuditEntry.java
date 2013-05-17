@@ -18,12 +18,18 @@
  */
 package dom.audit;
 
-import org.apache.isis.applib.annotation.*;
-import org.apache.isis.applib.bookmarks.Bookmark;
-import org.apache.isis.applib.bookmarks.BookmarkHolder;
-import org.apache.isis.applib.value.DateTime;
+import javax.jdo.annotations.IdGeneratorStrategy;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
 
-import javax.jdo.annotations.*;
+import org.apache.isis.applib.annotation.Hidden;
+import org.apache.isis.applib.annotation.Immutable;
+import org.apache.isis.applib.annotation.MemberOrder;
+import org.apache.isis.applib.annotation.Programmatic;
+import org.apache.isis.applib.annotation.Title;
+import org.apache.isis.applib.services.bookmark.Bookmark;
+import org.apache.isis.applib.services.bookmark.BookmarkHolder;
+import org.apache.isis.applib.value.DateTime;
 
 @javax.jdo.annotations.PersistenceCapable
 @Immutable

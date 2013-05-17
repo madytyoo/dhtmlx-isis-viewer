@@ -15,11 +15,10 @@
         <appengine.app.version>1</appengine.app.version>
         <appengine.target.version>1.8.0</appengine.target.version>
         
-        
         <antlr.version>4.0</antlr.version>
 
-        <isis.version>1.1.0</isis.version>
-        <isis-objectstore-jdo.version>1.0.0</isis-objectstore-jdo.version>
+        <isis.version>1.2.0-SNAPSHOT</isis.version>
+        <isis-objectstore-jdo.version>1.1.0-SNAPSHOT</isis-objectstore-jdo.version>
         
         <isis-security-file.version>1.0.0</isis-security-file.version>
         <isis-security-shiro.version>1.1.0</isis-security-shiro.version>
